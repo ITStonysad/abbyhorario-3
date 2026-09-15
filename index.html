@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horario de clases</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-hearts" aria-hidden="true"></div>
+
+  <div id="particlesBack" class="particle-layer layer-back" aria-hidden="true"></div>
+  <div id="particlesMid" class="particle-layer layer-mid" aria-hidden="true"></div>
+  <div id="particlesFront" class="particle-layer layer-front" aria-hidden="true"></div>
+  <div id="cuteCursor" aria-hidden="true">♡</div>
+
+
+  <div class="music-control" id="musicControl" aria-label="Control de música">
+    <button id="musicToggle" class="music-btn" type="button" aria-label="Reproducir o pausar música">♫</button>
+    <div class="music-meta">
+      <span id="musicState">Música</span>
+      <input id="musicVolume" class="music-volume" type="range" min="0" max="1" step="0.01" value="0.35" aria-label="Volumen" />
+    </div>
+    <button id="musicMute" class="music-mute" type="button" aria-label="Silenciar música">♡</button>
+  </div>
+  <audio id="musicPlayer" src="background-music.mp3" preload="auto" autoplay loop playsinline></audio>
+
+  <main class="app">
+    <section class="panel">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">✧ AGENDA DE ABBY</div>
+          <h1 contenteditable="true" data-key="title">Horario de clases</h1>
+          <p contenteditable="true" data-key="subtitle">
+            Edita cualquier campo. Tus cambios se guardan automáticamente.
+          </p>
+        </div>
+        <div class="saved">▣ <span id="saveStatus">Todo guardado</span></div>
+      </header>
+
+      <div class="block-label">BLOQUE I</div>
+      <div id="block1" class="schedule"></div>
+
+      <div class="block-label block-two">BLOQUE II</div>
+      <div id="block2" class="schedule"></div>
+
+      <footer class="footer">
+        <span id="count">0 actividades</span>
+        <div class="footer-actions">
+          <button id="resetBtn" class="btn ghost">↺ Restablecer</button>
+          <button id="addBtn" class="btn">＋ Agregar actividad</button>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <template id="rowTemplate">
+    <article class="row">
+      <div class="abbr editable" contenteditable="true"></div>
+      <div class="name editable" contenteditable="true"></div>
+      <div class="topic editable" contenteditable="true"></div>
+      <div class="hour-wrap">
+        <span class="hour-label">Hora</span>
+        <input class="time-input" type="time" aria-label="Hora de la actividad" />
+      </div>
+      <div class="actions">
+        <button class="icon delete" title="Eliminar">🗑</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
